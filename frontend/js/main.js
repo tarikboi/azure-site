@@ -2,12 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
     getVisitCount();
 });
 
-const functionApi = "http://localhost:7071/api/GetCounter";
+const functionApiUrl = "https://tarik-azure-site.azurewebsites.net/api/GetCounter?code=P3In89AETTBRBxvuzZTwWZh3MISGBXkF14Tr1iMy8YuqAzFuQFGT_w%3D%3D";
+const localFunctionApiUrl = "http://localhost:7071/api/GetCounter";
 
 function getVisitCount() {
     var count = 1;
 
-    fetch(functionApi).then(response => {
+    fetch(functionApiUrl).then(response => {
         return response.json();
     }).then(response => {
         console.log("Website called function API");
