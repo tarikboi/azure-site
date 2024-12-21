@@ -1,19 +1,19 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     getVisitCount();
 });
 
-const functionApi = "https://jsonplaceholder.typicode.com/posts";
+const functionApi = "http://localhost:7071/api/GetCounter";
 
 function getVisitCount() {
     var count = 1;
 
-    fetch(functionApi).then(response =>{
+    fetch(functionApi).then(response => {
         return response.json();
-    }).then(response =>{
+    }).then(response => {
         console.log("Website called function API");
-        count = response.length;
+        count = response.count;
         document.getElementById("counter").innerText = count;
-    }).catch(function(error){
+    }).catch(function (error) {
         document.getElementById("counter").innerText = count;
         console.log(error);
     });
